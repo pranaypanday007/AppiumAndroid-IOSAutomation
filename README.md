@@ -45,10 +45,10 @@ git clone https://github.com/pranaypanday007/AppiumAndroid‑IOSAutomation.git
 cd AppiumAndroid‑IOSAutomation
 
 **2. Install dependencies**
-# Java + Maven
+Java + Maven
 ./mvnw install
 
-# Node (if used)
+Node (if used)
 npm install
 
 **3. Configure environments**
@@ -59,10 +59,10 @@ Edit config files (e.g., TestNG *.xml) to specify platforms, device names, emula
 # Run all tests
 ./mvnw test
 
-# Or target only Android:
+Or target only Android:
 ./mvnw test -Dsuites=android
 
-# Or iOS:
+Or iOS:
 ./mvnw test -Dsuites=ios
 
 **Project Structure**
