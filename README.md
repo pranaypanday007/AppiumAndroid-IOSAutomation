@@ -1,109 +1,127 @@
-**📱 Appium Android–iOS Automation**
-A cross-platform mobile test automation framework built with Appium for Android & iOS.
 
-**🧩 Table of Contents**
-Overview
-Features
-Prerequisites
-Setup
-1. Clone the repo
-2. Install dependencies
-3. Configure environments
-4. Run tests
+# 📱 Appium Android–iOS Automation
 
-Project Structure
-Usage
-Reporting & Troubleshooting
-Contributing
-License
+A robust framework for cross-platform (Android & iOS) mobile app test automation using Appium.
 
+---
 
-**Overview**
-This framework offers end-to-end test automation for Android and iOS apps using Appium. It supports:
-Java + TestNG
-Command‑line and CI execution
-Parallel test execution via Selenium Grid or standalone
-Device & platform parameterization
+## Table of Contents
 
-**Features**
-Cross‑platform (Android + iOS) support
-Driver initialization and teardown
-Utility methods for gestures, waits, screenshots
-Parameterized TestNG suites
-CI/CD readiness (Grid integration)
+- [Overview](#overview)
+- [Features](#features)
+- [Prerequisites](#prerequisites)
+- [Setup](#setup)
+- [Project Structure](#project-structure)
+- [Usage](#usage)
+- [Reporting & Troubleshooting](#reporting--troubleshooting)
+- [Contributing](#contributing)
+- [License](#license)
 
-**Prerequisites**
-Java 17 (ideally via Temurin or Homebrew)
-Maven or Gradle
-Node.js + Appium CLI (npm install -g appium)
-Android SDK + AVD setup OR Xcode + iOS simulator (for macOS)
-adb, xcrun, and xcode-select configured
+---
 
-**Setup**
-**1. Clone the repo**
-git clone https://github.com/pranaypanday007/AppiumAndroid‑IOSAutomation.git
-cd AppiumAndroid‑IOSAutomation
+## Overview
+
+This project provides an easy-to-extend, platform-agnostic test automation solution for native mobile applications using [Appium](https://appium.io/) with Java and TestNG.  
+Supports both Android and iOS, parallel execution, and integration with popular CI/CD tools.
+
+---
+
+## Features
+
+- 🔄 Android & iOS automation support  
+- 🚀 Java + TestNG-based test suites  
+- 🖱️ Utility functions for gestures, waits, and screenshots  
+- 🛠️ Easily parameterized for different devices & platforms  
+- ⚡ CI/CD ready
+
+---
+
+## Prerequisites
+
+- Java 17+ (recommended)
+- Maven 3.x+
+- Node.js & npm
+- Appium CLI (`npm install -g appium`)
+- Android SDK (for Android)
+- Xcode & Xcode Command Line Tools (for iOS, macOS only)
+- Real device or emulator/simulator setup
+- Appium Inspector (optional, for element location)
+
+---
+
+## Setup
+
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/pranaypanday007/AppiumAndroid-IOSAutomation.git
+cd AppiumAndroid-IOSAutomation
 
 **2. Install dependencies**
-Java + Maven
-./mvnw install
+# Maven dependencies
+mvn clean install
 
-Node (if used)
+# Node dependencies (if using JS helpers)
 npm install
 
-**3. Configure environments**
-Edit config files (e.g., TestNG *.xml) to specify platforms, device names, emulator UUIDs, and App paths for .apk/.app.
+**3. Configure your environment**
+Update device names, platform versions, and app paths in the TestNG XML or config properties.
 
-**4. Run tests**
+Make sure your Android emulator or iOS simulator/device is running.
 
+**4. Start Appium server**
+appium
+# Or with specific host/port
+appium -a 127.0.0.1 -p 4723
+
+**5. Run your tests**
 # Run all tests
-./mvnw test
+mvn test
 
-Or target only Android:
-./mvnw test -Dsuites=android
-
-Or iOS:
-./mvnw test -Dsuites=ios
+# Or specify TestNG suite
+mvn test -DsuiteXmlFile=android-tests.xml
+mvn test -DsuiteXmlFile=ios-tests.xml
 
 **Project Structure**
-
-src/
- ├─ main/
- │   └─ java/com/…/
- │       ├─ DriverManager.java     ← driver setup
- │       └─ Utils.java             ← gestures, waits, screenshots
- └─ test/
-     └─ java/com/…/
-         ├─ android/               ← Android test classes
-         └─ ios/                   ← iOS test classes
-pom.xml (or build.gradle)
-nodejs/ (driver installation scripts)
-Feel free to adjust this structure based on actual file names.
+AppiumAndroid-IOSAutomation/
+│
+├── src/
+│   ├── main/java/com/yourcompany/
+│   │     ├── DriverManager.java
+│   │     ├── Utils.java
+│   │     └── ...other utilities...
+│   └── test/java/com/yourcompany/
+│         ├── android/
+│         └── ios/
+│
+├── pom.xml
+├── testng.xml
+└── README.md
 
 **Usage**
-Install Appium: npm install -g appium appium-doctor
-Start Appium: appium (or via Selenium Grid)
-Launch emulator/simulator
-Run tests as shown above
-View reports and logs (TestNG HTML, screenshots on failure)
+Place your Android or iOS app under the specified path.
+Update TestNG XML with your device/emulator details.
+Run tests using Maven commands as shown above.
+Check reports in the /target/surefire-reports/ directory.
 
 **Reporting & Troubleshooting**
-Screenshots: auto-captured on failures, located in reports/screenshots/
-Logs: via TestNG / Appium server logs
-Troubleshooting tips:
-Verify emulator/real device connections with adb devices or xcrun simctl list
-Use Appium Inspector to locate UI elements
+Test reports: Located in target/surefire-reports
+Screenshots: Auto-captured on failure (see /screenshots or configured location)
+Logs: View Appium server logs and test output for debugging
+Device Connection:
+Android: adb devices
+iOS: xcrun simctl list
+Common Issues:
+Device not detected: Restart emulator/simulator and ensure drivers are installed
+Port in use: Change Appium server port or kill process using the port
 
 **Contributing**
-Contributions are welcome! Feel free to:
-Report bugs or propose enhancements
-Submit pull requests with clear descriptions
-Add documentation or sample test cases
+Pull requests are welcome! For major changes, please open an issue first to discuss what you would like to change.
+Fork this repo
+Create your feature branch (git checkout -b feature/fooBar)
+Commit your changes (git commit -am 'Add some fooBar')
+Push to the branch (git push origin feature/fooBar)
+Open a pull request
 
 **License**
-Licensed under the MIT License.
-
-**✅ Next Steps**
-Fill in actual package names, scripts, and config examples.
-Add sample screenshots or reports, as appropriate.
-Link to any demo videos or CI pipelines if available.
+This project is licensed under the MIT License - see the LICENSE file for details.
