@@ -58,10 +58,10 @@ git clone https://github.com/pranaypanday007/AppiumAndroid-IOSAutomation.git
 cd AppiumAndroid-IOSAutomation
 
 ### 2. Install dependencies
-# Maven dependencies
+Maven dependencies
 mvn clean install
 
-# Node dependencies (if using JS helpers)
+Node dependencies (if using JS helpers)
 npm install
 
 ### 3. Configure your environment
@@ -70,14 +70,14 @@ Make sure your Android emulator or iOS simulator/device is running.
 
 ### **4. Start Appium server**
 appium
-# Or with specific host/port
+Or with specific host/port
 appium -a 127.0.0.1 -p 4723
 
 ### **5. Run your tests**
-# Run all tests
+Run all tests
 mvn test
 
-# Or specify TestNG suite
+Or specify TestNG suite
 mvn test -DsuiteXmlFile=android-tests.xml
 mvn test -DsuiteXmlFile=ios-tests.xml
 
